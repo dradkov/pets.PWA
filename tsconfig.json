@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "es2020",
+    "module": "es2020",
     "strict": true,
+    "allowJs": true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
@@ -12,14 +13,19 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "noImplicitAny": false,
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
+      "puppeteer",
+      "jest-environment-puppeteer",
+      "expect-puppeteer"
     ],
     "paths": {
       "@/*": [
-        "src/*"
-      ]
+        "src/*",
+      ],
+      "@e2e/*": ["tests/e2e/*"]
     },
     "lib": [
       "esnext",
