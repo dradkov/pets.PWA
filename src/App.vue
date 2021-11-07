@@ -1,19 +1,26 @@
 <template>
-  <div id="nav">
-    <TopBarHeader msg="Welcome to You App" />
-  </div>
+  <!-- <div id="nav"> -->
+  <TopBarHeader msg="Welcome to You App" />
+  <div class="page">
+    <div class="container">
+      <Categories />
+    </div><!-- conainer -->
+  </div><!-- page -->
+  <!-- </div> -->
   <router-view />
 </template>
 
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
- import TopBarHeader from "@/components/Headers/TopBarHeader.vue"; 
+ import TopBarHeader from "@/components/Headers/TopBarHeader.vue";
+ import Categories from "@/components/Categories.vue";
 
 
 @Options({
   components: {
     TopBarHeader,
+    Categories
   },
 })
  export default class App extends Vue {}

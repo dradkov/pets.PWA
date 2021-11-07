@@ -3,8 +3,8 @@ import pets from "./pets.module";
 import LocalForage, { key } from 'localforage';
 import VuexPersist from 'vuex-persist';
 
-const dataKey: string = 'pick.a.pet';
-let appState = {
+const dataKey = 'pick.a.pet';
+const appState = {
   ...pets.state,
 };
 

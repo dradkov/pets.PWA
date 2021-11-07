@@ -18,7 +18,9 @@ module.exports = {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "vue/html-self-closing":'off',
-    "vue/max-attributes-per-line":'off'
+    "vue/max-attributes-per-line":'off',
+    "@typescript-eslint/no-explicit-any":"off",
+    "@typescript-eslint/explicit-module-boundary-types":"off"
   },
   overrides: [
     {
