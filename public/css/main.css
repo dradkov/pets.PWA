@@ -2128,6 +2128,7 @@ input:-moz-placeholder {
 }
 
 .job-category-items .category-list li {
+	padding-right: 1em;
 	width: 16.6%;
 	float: left;
 	min-height: 90px;

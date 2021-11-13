@@ -1,10 +1,10 @@
 <template>
-  <div class="section category-items job-category-items text-center">
+  <div class="job-category-items text-center">
     <ul class="category-list">
       <li class="category-item">
         <a href="job-list.html">
           <div class="category-icon">
-            <img src="images/icon/1.png" alt="images" class="img-responsive" />
+            <img src="images/icon/pup.png" alt="images" class="img-responsive" />
           </div>
           <span class="category-title">{{ getOptions[0] }}</span>
           <span class="category-quantity">(1298)</span>
@@ -15,7 +15,7 @@
       <li class="category-item">
         <a href="job-list.html">
           <div class="category-icon">
-            <img src="images/icon/2.png" alt="images" class="img-responsive" />
+            <img src="images/icon/market.png" alt="images" class="img-responsive" />
           </div>
           <span class="category-title">{{ getOptions[1] }}</span>
           <span class="category-quantity">(76212)</span>
