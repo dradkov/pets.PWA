@@ -1,1 +1,2 @@
 export const TEST_PET = 'testPet';
+export const GET_BUY_COUNT = 'getBuyCount';

@@ -13,8 +13,13 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
- import TopBarHeader from "@/components/Headers/TopBarHeader.vue";
- import Categories from "@/components/Categories.vue";
+import TopBarHeader from "@/components/Headers/TopBarHeader.vue";
+import Categories from "@/components/Categories.vue";
+import { GET_BUY_COUNT } from "@/store/actions.type";
+
+
+import { useStore } from 'vuex'
+import { key } from './store/store'
 
 
 @Options({
@@ -23,7 +28,16 @@ import { Options, Vue } from "vue-class-component";
     Categories
   },
 })
- export default class App extends Vue {}
+ export default class App extends Vue {
+
+   public async beforeMount(){
+const store = useStore(key);
+
+  await store.dispatch(GET_BUY_COUNT);
+
+
+   }
+ }
 </script>
 
 

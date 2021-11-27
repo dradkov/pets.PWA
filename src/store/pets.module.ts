@@ -1,8 +1,10 @@
 import {
-    TEST_PET
+    TEST_PET,
+    GET_BUY_COUNT
 } from './actions.type';
 import {
-    SET_TEST_PET
+    SET_TEST_PET,
+    SET_BUY_COUNT
 } from './mutation.type';
 
 import PetService from "@/services/PetService";
@@ -10,7 +12,7 @@ import PetService from "@/services/PetService";
 const petService = PetService.shared;
 
 const originalState = {
-    petList: [],
+    petList: [] as any ,
 }
 
 const getters = {
@@ -37,7 +39,26 @@ const actions = {
             }
             resolve();
         })
-        commit(SET_TEST_PET);
+        // commit(SET_TEST_PET);
+    },
+
+
+    [GET_BUY_COUNT]: ({ commit }) => {
+        return new Promise<void>(async (resolve, reject) => {
+            let test: string;
+           // let test2: string;
+            try {
+              //  test2 = await petService.createAdvertBuy("nechto");
+                test = await petService.listAdvertBuy();
+                commit(SET_BUY_COUNT, test);
+            } catch (error) {
+                console.log(error);
+                reject(error);
+
+            }
+            resolve();
+        })
+        // commit(SET_TEST_PET);
     }
 }
 
