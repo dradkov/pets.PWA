@@ -46,9 +46,7 @@ const actions = {
     [GET_BUY_COUNT]: ({ commit }) => {
         return new Promise<void>(async (resolve, reject) => {
             let test: string;
-           // let test2: string;
             try {
-              //  test2 = await petService.createAdvertBuy("nechto");
                 test = await petService.listAdvertBuy();
                 commit(SET_BUY_COUNT, test);
             } catch (error) {
