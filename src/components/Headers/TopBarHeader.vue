@@ -24,17 +24,17 @@
           <div id="navbar-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li class="active">
-                <a href="index.html">Home</a>
+                <a href="index.html"></a>
               </li>
-              <li><a href="job-list.html">Job list</a></li>
-              <li><a href="details.html">Job Details</a></li>
-              <li><a href="resume.html">Resume</a></li>
+              <li><a href="job-list.html"></a></li>
+              <li><a href="details.html"></a></li>
+              <li><a href="resume.html"></a></li>
               <li class="dropdown">
                 <a
                   href="javascript:void(0);"
                   class="dropdown-toggle"
                   data-toggle="dropdown"
-                >Pages<span class="caret"></span>			
+                >	
                 </a>
                 
                 <ul class="dropdown-menu">

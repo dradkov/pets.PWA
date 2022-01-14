@@ -3,7 +3,8 @@
   <TopBarHeader msg="Welcome to You App" />
   <div class="page">
     <div class="container">
-      <Categories />
+      <Filters />
+      <Adverts />
     </div><!-- conainer -->
   </div><!-- page -->
   <!-- </div> -->
@@ -14,7 +15,8 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import TopBarHeader from "@/components/Headers/TopBarHeader.vue";
-import Categories from "@/components/Categories.vue";
+import Filters from "@/components/Filters.vue";
+import Adverts from "@/components/Adverts.vue";
 import { GET_BUY_COUNT } from "@/store/actions.type";
 
 
@@ -25,7 +27,8 @@ import { key } from './store/store'
 @Options({
   components: {
     TopBarHeader,
-    Categories
+    Filters,
+    Adverts
   },
 })
  export default class App extends Vue {
