@@ -1,12 +1,6 @@
 <template>
   <!-- <div id="nav"> -->
   <TopBarHeader msg="Welcome to You App" />
-  <div class="page">
-    <div class="container">
-      <Filters />
-      <Adverts />
-    </div><!-- conainer -->
-  </div><!-- page -->
   <!-- </div> -->
   <router-view />
 </template>
