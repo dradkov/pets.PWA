@@ -16,8 +16,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><img class="img-responsive" />Pets</a>
-          <!-- <h1>Pets</h1> -->
+          <router-link to="/">Pets</router-link>
         </div>
         <!-- /navbar-header -->
         <div class="navbar-left">

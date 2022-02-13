@@ -11,7 +11,7 @@ import { Options, Vue } from "vue-class-component";
 import TopBarHeader from "@/components/Headers/TopBarHeader.vue";
 import Filters from "@/components/Filters.vue";
 import Adverts from "@/components/Adverts.vue";
-import { GET_BUY_COUNT } from "@/store/actions.type";
+// import { GET_BUY_COUNT } from "@/store/actions.type";
 
 
 import { useStore } from 'vuex'
@@ -30,7 +30,7 @@ import { key } from './store/store'
    public async beforeMount(){
 const store = useStore(key);
 
-  await store.dispatch(GET_BUY_COUNT);
+  // await store.dispatch(GET_BUY_COUNT);
 
 
    }

@@ -1,2 +1,3 @@
 export const TEST_PET = 'testPet';
-export const GET_BUY_COUNT = 'getBuyCount';
+// export const GET_BUY_COUNT = 'getBuyCount';
+export const REGISER_USER = 'registerUser';

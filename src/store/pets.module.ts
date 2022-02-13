@@ -1,10 +1,8 @@
 import {
     TEST_PET,
-    GET_BUY_COUNT
 } from './actions.type';
 import {
     SET_TEST_PET,
-    SET_BUY_COUNT
 } from './mutation.type';
 
 import PetService from "@/services/PetService";
@@ -43,21 +41,21 @@ const actions = {
     },
 
 
-    [GET_BUY_COUNT]: ({ commit }) => {
-        return new Promise<void>(async (resolve, reject) => {
-            let test: string;
-            try {
-                test = await petService.listAdvertBuy();
-                commit(SET_BUY_COUNT, test);
-            } catch (error) {
-                console.log(error);
-                reject(error);
+    // [GET_BUY_COUNT]: ({ commit }) => {
+    //     return new Promise<void>(async (resolve, reject) => {
+    //         let test: string;
+    //         try {
+    //             test = await petService.listAdvertBuy();
+    //             commit(SET_BUY_COUNT, test);
+    //         } catch (error) {
+    //             console.log(error);
+    //             reject(error);
 
-            }
-            resolve();
-        })
-        // commit(SET_TEST_PET);
-    }
+    //         }
+    //         resolve();
+    //     })
+    //     // commit(SET_TEST_PET);
+    // }
 }
 
 const mutations = {

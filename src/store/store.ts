@@ -1,6 +1,7 @@
 
 // import { createStore } from "vuex";
 import pets from "./pets.module";
+import users from "./users.module";
 import LocalForage from 'localforage';
 import VuexPersist from 'vuex-persist';
 
@@ -16,18 +17,10 @@ export interface State {
 // define injection key
 export const key: InjectionKey<Store<State>> = Symbol()
 
-// export const store = createStore<State>({
-//   state: {
-//     count: 0
-//   }
-// })
-
-
-
-
 const dataKey = 'pick.a.pet';
 const appState = {
   ...pets.state,
+  ...users.state
 };
 
 LocalForage.config({
@@ -49,27 +42,19 @@ export const store = createStore<State>({
   },
   mutations: {
     ...pets.mutations,
+    ...users.mutations,
   },
   actions: {
     ...pets.actions,
+    ...users.actions,
   },
   getters: {
     ...pets.getters,
+    ...users.getters,
   },
   plugins: [vuexLocal.plugin]
 })
 
-export default createStore({
+// export default createStore({
 
-});
-
-
-
-
-// export const store = createStore({
-//   state () {
-//     return {
-//       count: 1
-//     }
-//   }
-// })
+// });

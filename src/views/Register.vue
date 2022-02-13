@@ -1,81 +1,103 @@
 <template>
-<section class="job-bg user-page">
-		<div class="container">
-			<div class="row text-center">
-				<!-- user-login -->			
-				<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-					<div class="user-account job-user-account">
-						<h2>Create An Account</h2>
-							<div class="tab-content">
-								<div role="tabpanel" class="tab-pane active" id="find-job">
-									<form action="#">
-										<!-- <div class="form-group">
-											<input type="text" class="form-control" placeholder="Name" >
-										</div> -->
-										<div class="form-group">
-											<input type="email" class="form-control" placeholder="Email">
-										</div>
-										<div class="form-group">
-											<input type="password" class="form-control" placeholder="Password">
-										</div>
-										<div class="form-group">
-											<input type="password" class="form-control" placeholder="Confirm Password">
-										</div>
-										<!-- <div class="form-group">
-											<input type="text" class="form-control" placeholder="Mobile Number">
-										</div> -->
-										<!-- select -->
-										<select class="form-control">
-											<!-- <option value="#">Select City</option>
-											<option value="#">London UK</option>
-											<option value="#">Newyork, USA</option>
-											<option value="#">Seoul, Korea</option>
-											<option value="#">Beijing, China</option> -->
-										</select>
-                                        
-                                        <!-- select -->
-		
-										<div class="checkbox">
-											<label class="pull-left checked" for="signing"><input type="checkbox" name="signing" id="signing"> By signing up for an account you agree to our Terms and Conditions </label>
-										</div><!-- checkbox -->	
-										<button type="submit" class="btn">Registration</button>	
-									</form>
-								</div>
-								<div role="tabpanel" class="tab-pane" id="post-job">
-									
-								</div>
-							</div>				
-					</div>
-				</div><!-- user-login -->			
-			</div><!-- row -->	
-		</div><!-- container -->
-	</section><!-- signup-page -->
+  <section class="job-bg user-page">
+    <div class="container">
+      <div class="row text-center">
+        <!-- user-login -->
+        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <div class="user-account job-user-account">
+            <h2>Create An Account</h2>
+            <div class="tab-content">
+              <div id="register" role="tabpanel" class="tab-pane active">
+                <form action="">
+                  <div class="form-group">
+                    <input v-model="email" type="email" class="form-control" placeholder="Email" @blur="validateEmail" />
+                    <p v-if="invalidEmailMessage" class="warning">
+                      {{ invalidEmailMessage }}
+                    </p>
+                  </div>
+                  <div class="form-group">
+                    <input v-model="password" type="password" class="form-control" placeholder="Password" />
+                  </div>
+                  <div class="form-group">
+                    <input v-model="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" @blur="validatePassword" />
+                    <p v-if="invalidConfirmMessage" class="warning">
+                      {{ invalidConfirmMessage }}
+                    </p>
+                  </div>
+                  <div class="checkbox">
+                    <label class="pull-left checked" for="signing">
+                      <input id="signing" type="checkbox" name="signing" /> By signing up for an account you agree to our Terms and Conditions
+                    </label>
+                  </div>
+                  <!-- checkbox -->
+                  <button class="btn" @click="(event) => onSubmit(event)">
+                    Registration
+                  </button>
+                </form>
+              </div>
+              <div id="post-register" role="tabpanel" class="tab-pane"></div>
+            </div>
+          </div>
+        </div>
+        <!-- user-login -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </section>
+  <!-- signup-page -->
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-// import { MainOption, FORMATTED_MAIN_OPTIONS } from '@/models/Options/MainPageOptions';
-import {
-  MainOption,
-  FORMATTED_MAIN_OPTIONS,
-} from "@/models/Options/MainPageOptions";
+import Register from '@/models/User/Register';
+import { REGISER_USER } from "@/store/actions.type";
+import { useStore } from 'vuex'
+import { key } from '@/store/store'
 
 @Options({
   components: {},
 })
 export default class Test extends Vue {
+  public email = "";
+  public password = "";
+  public confirmPassword = "";
+  public isInvalidEmail = false;
+  public invalidEmailMessage = '';
+  public invalidConfirmMessage = '';
+  public  store = useStore(key);
 
-  get getOptions() {   
-    var listOfOptions = [] as any[];
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.SellBuy));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.MarketPlace));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.PetGift));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.FoundLost));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.SearchPartner));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.Veterinary));
+  public async onSubmit() {
+	  if (this.invalidEmailMessage === '' && this.invalidConfirmMessage === '') {
+      const registerModel = new Register(this.email, this.password);
+      await this.store.dispatch(REGISER_USER, registerModel).then(()=>{
+      this.$router.push('/');
+      });
+	  }
+  }
 
-    return listOfOptions;
+  public validateEmail() {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+		this.invalidEmailMessage = '';
+    } else {
+      this.invalidEmailMessage = 'Please enter a valid email address';
+    }
+  }
+
+  public validatePassword() {
+    if ( this.password !== this.confirmPassword) {
+		this.invalidConfirmMessage = 'The password and confirmation password do not match.';
+    } else {
+	  this.invalidConfirmMessage = '';
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+	.warning {
+		color: red;
+		font-size:10;
+	}
+</style>
 
