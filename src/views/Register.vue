@@ -30,7 +30,7 @@
                     </label>
                   </div>
                   <!-- checkbox -->
-                  <button class="btn" @click="(event) => onSubmit(event)">
+                  <button class="btn" @click="(event) => onSubmit()">
                     Registration
                   </button>
                 </form>
