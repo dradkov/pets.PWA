@@ -59,11 +59,10 @@
           <ul class="sign-in">
             <li><i class="fa fa-user"></i></li>
             <!-- <li><a href="signin.html">Sign In</a></li> -->
-            <router-link to="/register">Register</router-link>
+            <router-link to="/register">Регистрация</router-link>
           </ul>
           <!-- sign-in -->
-
-          <a href="post.html" class="btn">Post Your Ad</a>
+          <router-link to="/new-advert" class="btn">Публикувай</router-link>
         </div>
         <!-- nav-right -->
       </div>
