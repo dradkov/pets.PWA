@@ -1,11 +1,14 @@
 import {
+    GET_ALL_PETS,
     TEST_PET,
 } from './actions.type';
 import {
+    SET_ALL_PETS,
     SET_TEST_PET,
 } from './mutation.type';
 
 import PetService from "@/services/PetService";
+import PaginationFilter from '@/models/PaginationFilter';
 
 const petService = PetService.shared;
 
@@ -40,6 +43,23 @@ const actions = {
         // commit(SET_TEST_PET);
     },
 
+    [GET_ALL_PETS]: ({ commit }, filter: PaginationFilter) => {
+        return new Promise<void>(async (resolve, reject) => {
+            let result: any;
+            try {
+                result = await petService.getAllPets(filter.pageNumber,filter.pageSize);
+                commit(SET_ALL_PETS, result);
+            } catch (error) {
+                console.log(error);
+                reject(error);
+
+            }
+            resolve();
+        })
+        // commit(SET_TEST_PET);
+    },
+
+
 
     // [GET_BUY_COUNT]: ({ commit }) => {
     //     return new Promise<void>(async (resolve, reject) => {
@@ -61,6 +81,9 @@ const actions = {
 const mutations = {
     [SET_TEST_PET](state, data: string) {
         state.petList = [data, data];
+    },
+    [SET_ALL_PETS](state, data: any) {
+        state.petList = data;
     }
 }
 

@@ -4,7 +4,7 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
     <div class="container">
       <Filters />
-      <Adverts />
+      <ListAdverts />
     </div><!-- conainer -->
   </div>
 </template>
@@ -13,13 +13,13 @@
 import { Options, Vue } from "vue-class-component";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import Filters from "@/components/Filters.vue"; // @ is an alias to /src
-import Adverts from "@/components/Adverts.vue"; // @ is an alias to /src
+import ListAdverts from "@/components/ListAdverts.vue"; // @ is an alias to /src
 
 @Options({
   components: {
     HelloWorld,
     Filters,
-    Adverts
+    ListAdverts
   },
 })
 export default class Home extends Vue {}
