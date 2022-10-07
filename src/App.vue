@@ -12,8 +12,8 @@ import TopBarHeader from "@/components/Headers/TopBarHeader.vue";
 import Filters from "@/components/Filters.vue";
 import ListAdverts from "@/components/ListAdverts.vue";
 import  PaginationFilter  from "@/models/PaginationFilter";
-import { useStore } from 'vuex'
-import { key } from './store/store'
+import { useStore } from 'vuex';
+import { key } from './store/store';
 import { GET_ALL_PETS } from "./store/actions.type";
 
 

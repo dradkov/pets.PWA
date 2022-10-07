@@ -9,11 +9,12 @@ import {
 
 import PetService from "@/services/PetService";
 import PaginationFilter from '@/models/PaginationFilter';
+import Pet from '@/models/Pet';
 
 const petService = PetService.shared;
 
 const originalState = {
-    petList: [] as any ,
+    petList: [] as Pet[] ,
 }
 
 const getters = {
@@ -23,32 +24,12 @@ const getters = {
 }
 
 const actions = {
-    // [TEST_PET]({commit}){
-    //     commit(SET_TEST_PET);
-    // }, 
-
-    [TEST_PET]: ({ commit }, id: string) => {
-        return new Promise<void>(async (resolve, reject) => {
-            let test: string;
-            try {
-                test = await petService.getPets();
-                commit(SET_TEST_PET, test);
-            } catch (error) {
-                console.log(error);
-                reject(error);
-
-            }
-            resolve();
-        })
-        // commit(SET_TEST_PET);
-    },
-
     [GET_ALL_PETS]: ({ commit }, filter: PaginationFilter) => {
         return new Promise<void>(async (resolve, reject) => {
             let result: any;
             try {
                 result = await petService.getAllPets(filter.pageNumber,filter.pageSize);
-                commit(SET_ALL_PETS, result);
+                commit(SET_ALL_PETS, result.data);
             } catch (error) {
                 console.log(error);
                 reject(error);
@@ -56,26 +37,7 @@ const actions = {
             }
             resolve();
         })
-        // commit(SET_TEST_PET);
     },
-
-
-
-    // [GET_BUY_COUNT]: ({ commit }) => {
-    //     return new Promise<void>(async (resolve, reject) => {
-    //         let test: string;
-    //         try {
-    //             test = await petService.listAdvertBuy();
-    //             commit(SET_BUY_COUNT, test);
-    //         } catch (error) {
-    //             console.log(error);
-    //             reject(error);
-
-    //         }
-    //         resolve();
-    //     })
-    //     // commit(SET_TEST_PET);
-    // }
 }
 
 const mutations = {

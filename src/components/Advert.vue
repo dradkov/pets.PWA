@@ -1,33 +1,40 @@
 <template>
- <div class="job-ad-item">
+  <div v-for="(advert, index) in advertCollection" :key="index">
+    <div class="job-ad-item">
       <div class="item-info">
         <div class="item-image-box">
           <div class="item-image">
-            <a href="job-details.html"><img src="images/job/1.png" alt="Image" class="img-responsive" /></a>
+            <a href="job-details.html"
+              ><img src="images/job/1.png" alt="Image" class="img-responsive"
+            /></a>
           </div>
           <!-- item-image -->
         </div>
         <div class="ad-info">
-          <span><a href="job-details.html" class="title">Project Manager</a> @<a href="#">Dominos Pizza</a></span>
+          <span
+            ><a href="job-details.html" class="title"
+              >{{ message(advert.advertType, advert.petType) }} </a
+            ><a href="#"></a></span
+          >
           <div class="ad-meta">
             <ul>
               <li>
-                <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>San Francisco, CA, US</a>
+                <a href="#"
+                  ><i class="fa fa-map-marker" aria-hidden="true"></i>{{formatAddress(advert.address)}}</a>
               </li>
+       
               <li>
-                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>Full Time</a>
+                <a href="#"><i class="fa fa-money" aria-hidden="true"></i>Цена: {{ advert.price }}</a>
               </li>
               <li>
                 <a href="#"
-                  ><i class="fa fa-money" aria-hidden="true"></i>$25,000 -
-                  $35,000</a
+                  ><i class="fa fa-tags" aria-hidden="true"></i>Порода: {{advert.breed}}</a
                 >
               </li>
+
               <li>
                 <a href="#"
-                  ><i class="fa fa-tags" aria-hidden="true"></i>HR/Org.
-                  Development</a
-                >
+                  ><i class="fa fa-tags" aria-hidden="true"></i>{{ formatGender(advert.gender)}}</a>
               </li>
             </ul>
           </div>
@@ -40,31 +47,38 @@
       </div>
       <!-- item-info -->
     </div>
-    <!-- ad-item -->
+  </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-// import { MainOption, FORMATTED_MAIN_OPTIONS } from '@/models/Options/MainPageOptions';
-import {
-  MainOption,
-  FORMATTED_MAIN_OPTIONS,
-} from "@/models/Options/MainPageOptions";
+import IPet from "@/models/Pet";
+import { ADVERT_TYPE_OPTIONS } from "@/models/Enums/AdvertType";
+import { PET_TYPE_OPTIONS } from "@/models/Enums/PetType";
+import { GENDER_TYPE_OPTIONS} from "@/models/Enums/Gender";
+import Address from "@/models/Address";
 
 @Options({
   components: {},
+  props: {
+    msg: String,
+    advertCollection: [] as IPet[],
+  },
 })
 export default class Advert extends Vue {
-  get getOptions() {
-    var listOfOptions = [] as any[];
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.SellBuy));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.MarketPlace));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.PetGift));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.FoundLost));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.SearchPartner));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.Veterinary));
+  msg!: string;
+  advertCollection!: IPet[];
 
-    return listOfOptions;
+  private message(advertType: number, petType: number) {
+    return `${ADVERT_TYPE_OPTIONS.get(advertType)} ${PET_TYPE_OPTIONS.get(petType)}`;
+  }
+
+   private formatAddress(address: Address) {
+    return `${address.city}, ${address.streetAddress}`;
+  }
+
+   private formatGender(gender: number) {
+    return `Пол: ${GENDER_TYPE_OPTIONS.get(gender)}`;
   }
 }
 </script>

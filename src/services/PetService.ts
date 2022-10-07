@@ -1,3 +1,4 @@
+import Pet from "@/models/Pet";
 import axios from "axios";
 
 class PetService {
@@ -70,25 +71,19 @@ class PetService {
     // }
 
 
-    public async getAllPets(pageNumber: number, pageSize:number): Promise<any> {
+    public async getAllPets(pageNumber: number, pageSize:number): Promise<Pet[]> {
 
         try {
 
-           // const url = `https://localhost:5001/api/Pet/get-all`;
-            const url = `https://localhost:5001/api/Pet/1`;
-
-            // const params = new URLSearchParams();
-            // params.append('pageNumber', `${pageNumber}`);
-            // params.append('pageSize', `${pageSize}`);
-
-            console.log('getAllPets(pageNumber: number, pageSize:number');
-
-           // const result = await axios.get<any>(url, { params });
-            const result = await axios.get<any>(url);
-            // console.log(result);
-            // return result.data;
-
-            return result
+           const url = `https://localhost:5001/api/Pet/get-all`;
+           
+            const params = new URLSearchParams();
+            params.append('pageNumber', `${pageNumber}`);
+            params.append('pageSize', `${pageSize}`);
+    
+            const result = await axios.get<any>(url, { params });
+      
+            return result.data;
 
         } catch (error) {
             console.log(`Could not retrieve`, error);

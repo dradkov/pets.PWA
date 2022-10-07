@@ -1,6 +1,6 @@
 <template>
   <div id="popular-jobs" role="tabpanel" class="tab-pane fade in active">
-    <Advert />
+    <Advert :advertCollection="listAdverts" />
   </div>
 </template>
 
@@ -12,34 +12,17 @@ import {
   MainOption,
   FORMATTED_MAIN_OPTIONS,
 } from "@/models/Options/MainPageOptions";
+import { useStore } from "vuex";
+import { key } from "@/store/store";
 
 @Options({
-  components: {Advert},
+  components: { Advert },
 })
 export default class ListAdverts extends Vue {
+  get listAdverts() {
+    const store = useStore(key);
 
-public async beforeMount(){
-  
-
-    console.log("ListAdverts extends Vue");
-
-  // await store.dispatch(GET_BUY_COUNT);
-
-
-   }
-
-  
-  get getOptions() {
-    var listOfOptions = [] as any[];
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.SellBuy));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.MarketPlace));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.PetGift));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.FoundLost));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.SearchPartner));
-    listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.Veterinary));
-
-    return listOfOptions;
+    return store.getters.pets;
   }
 }
 </script>
-
