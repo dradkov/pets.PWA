@@ -14,7 +14,7 @@ import ListAdverts from "@/components/ListAdverts.vue";
 import  PaginationFilter  from "@/models/PaginationFilter";
 import { useStore } from 'vuex';
 import { key } from './store/store';
-import { GET_ALL_PETS } from "./store/actions.type";
+import { GET_ALL_PETS, GET_DROPDOWNS } from "./store/actions.type";
 
 
 @Options({
@@ -32,6 +32,8 @@ import { GET_ALL_PETS } from "./store/actions.type";
     const filter = new PaginationFilter(1,10);
 
    await store.dispatch(GET_ALL_PETS, filter);
+
+   await store.dispatch(GET_DROPDOWNS);
 
 
    }

@@ -9,5 +9,5 @@ export const ADVERT_TYPE_OPTIONS = new Map<number, string>([
     [0, 'Купува'],
     [1, 'Продава'],
     [2, 'Изгубено / Намерено'],
-    [3, 'Breeding']
+    [3, 'За разплод']
 ])
