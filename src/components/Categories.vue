@@ -1,8 +1,8 @@
 <template>
-  <div class="job-category-items text-center">
+  <div class="pet-category-items text-center">
     <ul class="category-list">
       <li class="category-item">
-        <a href="job-list.html">
+        <a href="pet-list.html">
           <div class="category-icon">
             <img src="images/icon/pup.png" alt="images" class="img-responsive" />
           </div>
@@ -13,7 +13,7 @@
       <!-- category-item -->
 
       <li class="category-item">
-        <a href="job-list.html">
+        <a href="pet-list.html">
           <div class="category-icon">
             <img src="images/icon/market.png" alt="images" class="img-responsive" />
           </div>
@@ -24,7 +24,7 @@
       <!-- category-item -->
 
       <li class="category-item">
-        <a href="job-list.html">
+        <a href="pet-list.html">
           <div class="category-icon">
             <img src="images/icon/3.png" alt="images" class="img-responsive" />
           </div>
@@ -35,7 +35,7 @@
       <!-- category-item -->
 
       <li class="category-item">
-        <a href="job-list.html">
+        <a href="pet-list.html">
           <div class="category-icon">
             <img src="images/icon/4.png" alt="images" class="img-responsive" />
           </div>
@@ -46,7 +46,7 @@
       <!-- category-item -->
 
       <li class="category-item">
-        <a href="job-list.html">
+        <a href="pet-list.html">
           <div class="category-icon">
             <img src="images/icon/5.png" alt="images" class="img-responsive" />
           </div>
@@ -57,7 +57,7 @@
       <!-- category-item -->
 
       <li class="category-item">
-        <a href="job-list.html">
+        <a href="pet-list.html">
           <div class="category-icon">
             <img src="images/icon/6.png" alt="images" class="img-responsive" />
           </div>

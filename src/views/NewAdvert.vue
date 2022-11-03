@@ -1,8 +1,8 @@
 <template>
   <div id="new-advert"></div>
-  <section class=" job-bg ad-details-page">
+  <section class=" pet-bg ad-details-page">
     <div class="container">
-      <div class="job-postdetails">
+      <div class="pet-postdetails">
         <div class="row">	
           <div class="col-md-12">
             <form action="#">
@@ -105,7 +105,7 @@
                     </div>
                   </div>
 
-                  <div class="row form-group photos-resume job-postdetails post-resume">
+                  <div class="row form-group photos-resume pet-postdetails post-resume">
                     <label class="col-sm-3 label-title">Снимки</label>
                     <div class="col-sm-8 ">
                       <label class="upload-image" for="filename">

@@ -1,10 +1,10 @@
 <template>
-  <section class="job-bg user-page">
+  <section class="pet-bg user-page">
     <div class="container">
       <div class="row text-center">
         <!-- user-login -->
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <div class="user-account job-user-account">
+          <div class="user-account pet-user-account">
             <h2>Create An Account</h2>
             <div class="tab-content">
               <div id="register" role="tabpanel" class="tab-pane active">

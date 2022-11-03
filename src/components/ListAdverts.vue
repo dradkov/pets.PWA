@@ -1,5 +1,5 @@
 <template>
-  <div id="popular-jobs" role="tabpanel" class="tab-pane fade in active">
+  <div id="popular-pets" role="tabpanel" class="tab-pane fade in active">
     <Advert :advertCollection="listAdverts" />
   </div>
 </template>

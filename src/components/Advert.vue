@@ -1,18 +1,18 @@
 <template>
   <div v-for="(advert, index) in advertCollection" :key="index">
-    <div class="job-ad-item">
+    <div class="pet-ad-item">
       <div class="item-info">
         <div class="item-image-box">
           <div class="item-image">
-            <a href="job-details.html"
-              ><img src="images/job/1.png" alt="Image" class="img-responsive"
+            <a href="pet-details.html"
+              ><img src="images/pet/1.png" alt="Image" class="img-responsive"
             /></a>
           </div>
           <!-- item-image -->
         </div>
         <div class="ad-info">
           <span
-            ><a href="job-details.html" class="title"
+            ><a href="pet-details.html" class="title"
               >{{ message(advert.advertType, advert.petType) }} </a
             ><a href="#"></a></span
           >

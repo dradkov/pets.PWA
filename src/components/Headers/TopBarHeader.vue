@@ -25,7 +25,7 @@
               <li class="active">
                 <a href="index.html"></a>
               </li>
-              <li><a href="job-list.html"></a></li>
+              <li><a href="pet-list.html"></a></li>
               <li><a href="details.html"></a></li>
               <li><a href="resume.html"></a></li>
               <li class="dropdown">
@@ -39,14 +39,14 @@
                 <ul class="dropdown-menu">
                   <li><a href="profile.html">Profile</a></li>
                   <li><a href="post-resume.html">Post Resume</a></li>
-                  <li><a href="post.html">Job Post</a></li>
+                  <li><a href="post.html">Pet Post</a></li>
                   <li><a href="edit-resume.html">Edit Resume</a></li>
                   <li><a href="profile-details.html">profile Details</a></li>
                   <li><a href="bookmark.html">Bookmark</a></li>
-                  <li><a href="applied-job.html">Applied Job</a></li>
+                  <li><a href="applied-pet.html">Applied Pet</a></li>
                   <li><a href="delete-account.html">Close Account</a></li>
-                  <li><a href="signup.html">Job Signup</a></li>
-                  <li><a href="signin.html">Job Signin</a></li>
+                  <li><a href="signup.html">Pet Signup</a></li>
+                  <li><a href="signin.html">Pet Signin</a></li>
                 </ul>
               </li>
             </ul>

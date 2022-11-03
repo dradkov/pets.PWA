@@ -1,5 +1,5 @@
 <template>
- <div class="banner-job">
+ <div class="banner-pet">
 		<div class="banner-overlay"></div>
 		<div class="container text-center">
 			<div class="banner-form">
