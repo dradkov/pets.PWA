@@ -1,9 +1,9 @@
-interface IRegister{
+interface IUserRegister{
     email: string;
     password: string;
 }
 
-class Register implements IRegister{
+class UserRegister implements IUserRegister{
     email: string; 
     password: string; 
     constructor(email: string, password: string) {
@@ -12,4 +12,4 @@ class Register implements IRegister{
     }
 }
 
-export default Register;
+export default UserRegister;

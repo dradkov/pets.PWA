@@ -1,4 +1,6 @@
-import Register from "@/models/User/Register";
+import User from "@/models/User/User";
+import UserRegister from "@/models/User/UserRegister";
+import UserLogin from "@/models/User/UserLogin";
 import axios from "axios";
 
 class UserService {
@@ -12,9 +14,8 @@ class UserService {
     }
 
 
-    public async registerUser(data: Register): Promise<string> {
-
-        const url = `${this.baseUrl}/api/user/register`;
+    public async registerUser(data: UserRegister): Promise<string> {
+        const url = `${this.baseUrl}/api/auth/register`;
         const result = await axios.post<any>(url, data)
             .then((response) => {
                 return response.data;
@@ -22,8 +23,33 @@ class UserService {
             .catch((error) => {
                 throw new Error(error.message);
             })
-            
+        
         return result;
+    }
+
+    public async sendForgotenPass(email: string): Promise<void> {
+        const url = `${this.baseUrl}/api/auth/send-email/${email}`;
+        const result = await axios.get<any>(url)
+            .then((response) => {
+                response.data;
+            })
+            .catch((error) => {
+                throw new Error(error.message);
+            });
+    }
+
+    public async login(data: UserLogin): Promise<User> {
+        const url = `${this.baseUrl}/api/auth/login`;
+        const result = await axios.post<User>(url, data)
+            .then((response) => {
+                return response.data;
+            })
+            .catch((error) => {
+                throw new Error(error.message);
+            })
+        
+        return result;
+           
     }
 }
 
