@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
+import Login from "../views/Login.vue";
+import ForgotenPassword from "../views/ForgotenPassword.vue";
 import NewAdvert from "../views/NewAdvert.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -13,6 +15,16 @@ const routes: Array<RouteRecordRaw> = [
     path: "/register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/forgoten-password",
+    name: "ForgotenPassword",
+    component: ForgotenPassword,
   },
   {
     path: "/new-advert",
