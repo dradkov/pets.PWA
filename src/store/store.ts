@@ -6,8 +6,9 @@ import LocalForage from 'localforage';
 import VuexPersist from 'vuex-persist';
 
 // store.ts
-import { InjectionKey } from 'vue'
-import { createStore, Store } from 'vuex'
+
+import { createStore } from 'vuex'
+
 
 // define your typings for the store state
 export interface State {
@@ -15,7 +16,7 @@ export interface State {
 }
 
 // define injection key
-export const key: InjectionKey<Store<State>> = Symbol()
+//export const key: InjectionKey<Store<State>> = Symbol()
 
 const dataKey = 'pick.a.pet';
 const appState = {
@@ -36,9 +37,9 @@ const vuexLocal = new VuexPersist({
   storage: storage as any
 })
 
-export const store = createStore<State>({
-  state: {
-    originalState: appState
+export const store = createStore({
+  state () {
+    return appState
   },
   mutations: {
     ...pets.mutations,

@@ -13,7 +13,6 @@ import Filters from "@/components/Filters.vue";
 import ListAdverts from "@/components/ListAdverts.vue";
 import  PaginationFilter  from "@/models/PaginationFilter";
 import { useStore } from 'vuex';
-import { key } from './store/store';
 import { GET_ALL_PETS } from "./store/actions.type";
 
 
@@ -27,7 +26,7 @@ import { GET_ALL_PETS } from "./store/actions.type";
  export default class App extends Vue {
 
    public async beforeMount(){
-    const store = useStore(key);
+    const store = useStore();
 
     const filter = new PaginationFilter(1,10);
 

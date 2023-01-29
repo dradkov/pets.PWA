@@ -5,7 +5,7 @@
         <!-- user-login -->
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <div class="user-account pet-user-account">
-            <h2>Login</h2>
+            <h2>Влез</h2>
             <div class="tab-content">
               <div id="register" role="tabpanel" class="tab-pane active">
                 <form action="">
@@ -29,9 +29,12 @@
                       placeholder="Password"
                     />
                   </div>
-                 
+                 <div class="footerLinks">
                   <router-link to="/register">Нямам Регистрация</router-link>
                  <router-link to="/forgoten-password">Забравена парола</router-link>
+
+                 </div>
+                
                   <!-- checkbox -->
                 </form>
                 <p v-if="invalidDataFieldsMessage" class="warning">
@@ -59,7 +62,6 @@ import { Options, Vue } from "vue-class-component";
 import UserLogin from "@/models/User/UserLogin";
 import { LOGIN_USER, REGISER_USER } from "@/store/actions.type";
 import { useStore } from "vuex";
-import { key } from "@/store/store";
 
 @Options({
   components: {},
@@ -70,7 +72,7 @@ export default class Login extends Vue {
   public isInvalidEmail = false;
   public invalidEmailMessage = '';
   public invalidDataFieldsMessage = '';
-  public store = useStore(key);
+  public store = useStore();
 
   public async onSubmit() {
     if (
@@ -81,7 +83,6 @@ export default class Login extends Vue {
     } else if ( this.invalidEmailMessage === '' ) 
     {
       const login = new UserLogin(this.email, this.password);
-      console.log(login);
       await this.store.dispatch(LOGIN_USER, login).then(() => {
         this.$router.push('/');
       });
@@ -103,4 +104,12 @@ export default class Login extends Vue {
   color: red;
   font-size: 10;
 }
+
+.footerLinks {
+    margin: 45px auto 0 auto;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+}
+
 </style>

@@ -5,7 +5,7 @@
         <!-- user-login -->
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <div class="user-account pet-user-account">
-            <h2>Create An Account</h2>
+            <h2>Регистрация</h2>
             <div class="tab-content">
               <div id="register" role="tabpanel" class="tab-pane active">
                 <form action="">
@@ -43,9 +43,7 @@
                   </div>
                   <div class="checkbox">
                     <label class="pull-left checked" for="signing">
-                      <input id="signing" type="checkbox" name="signing" /> By
-                      signing up for an account you agree to our Terms and
-                      Conditions
+                      <input id="signing" type="checkbox" name="signing" /> С регистрирането на акаунт вие се съгласявате с нашите Правила и условия
                     </label>
                   </div>
                   <!-- checkbox -->
@@ -54,7 +52,7 @@
                   {{ invalidDataFieldsMessage }}
                 </p>
                 <button class="btn" @click="() => onSubmit()">
-                  Registration
+                  Регистрация
                 </button>
               </div>
               <div id="post-register" role="tabpanel" class="tab-pane"></div>
@@ -75,7 +73,6 @@ import { Options, Vue } from "vue-class-component";
 import UserRegister from "@/models/User/UserRegister";
 import { REGISER_USER } from "@/store/actions.type";
 import { useStore } from "vuex";
-import { key } from "@/store/store";
 
 @Options({
   components: {},
@@ -88,7 +85,7 @@ export default class Register extends Vue {
   public invalidEmailMessage ='';
   public invalidConfirmMessage = '';
   public invalidDataFieldsMessage = '';
-  public store = useStore(key);
+  public store = useStore();
 
   public async onSubmit() {
     if (
@@ -96,7 +93,7 @@ export default class Register extends Vue {
       this.password === '' ||
       this.confirmPassword === ''
     ) {
-      this.invalidDataFieldsMessage = "Please fill in all fields";
+      this.invalidDataFieldsMessage = "Моля, попълнете всички полета.";
     } else if (
       this.invalidEmailMessage === '' &&
       this.invalidConfirmMessage === ''
@@ -112,17 +109,17 @@ export default class Register extends Vue {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
       this.invalidEmailMessage = '';
     } else {
-      this.invalidEmailMessage = "Please enter a valid email address";
+      this.invalidEmailMessage = "Моля въведете валиден адрес";
     }
   }
 
   public validatePassword() {
     if (this.password !== this.confirmPassword) {
       this.invalidConfirmMessage =
-        "The password and confirmation password do not match.";
+        "Паролата и паролата за потвърждение не съвпадат.";
     } else if (this.password === '' || this.confirmPassword === '') {
       this.invalidConfirmMessage =
-        "The password and confirmation password must not be empty.";
+        "Паролата и паролата за потвърждение не трябва да са празни.";
     } else {
       this.invalidConfirmMessage = '';
     }

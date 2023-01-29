@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
+import Profile from "../views/Profile.vue";
 import ForgotenPassword from "../views/ForgotenPassword.vue";
 import NewAdvert from "../views/NewAdvert.vue";
 
@@ -27,11 +28,15 @@ const routes: Array<RouteRecordRaw> = [
     component: ForgotenPassword,
   },
   {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
+  },
+  {
     path: "/new-advert",
     name: "NewAdvert",
     component: NewAdvert,
   },
-
   {
     path: "/about",
     name: "About",

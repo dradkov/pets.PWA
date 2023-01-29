@@ -144,6 +144,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { useStore } from "vuex";
 // import { MainOption, FORMATTED_MAIN_OPTIONS } from '@/models/Options/MainPageOptions';
 import {
   MainOption,
@@ -154,6 +155,14 @@ import {
   components: {},
 })
 export default class Adverts extends Vue {
+
+public beforeMount(){
+    const store = useStore();
+    let user = store.getters.currentUser;
+
+}
+
+
   get getOptions() {
     var listOfOptions = [] as any[];
     listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.SellBuy));

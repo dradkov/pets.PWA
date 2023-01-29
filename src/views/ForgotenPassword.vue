@@ -49,7 +49,6 @@ import { Options, Vue } from "vue-class-component";
 import UserRegister from "@/models/User/UserRegister";
 import { REGISER_USER, SEND_FORGOTEN_PASS } from "@/store/actions.type";
 import { useStore } from "vuex";
-import { key } from "@/store/store";
 
 @Options({
   components: {},
@@ -60,7 +59,7 @@ export default class ForgotenPassword extends Vue {
   public isInvalidEmail = false;
   public invalidEmailMessage ='';
  
-  public store = useStore(key);
+  public store = useStore();
 
   public async onSubmit() {
     if ( this.email !== '' && this.invalidEmailMessage == '')
