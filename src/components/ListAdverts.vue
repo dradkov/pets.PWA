@@ -12,7 +12,7 @@ import {
   MainOption,
   FORMATTED_MAIN_OPTIONS,
 } from "@/models/Options/MainPageOptions";
-import { useStore } from "vuex";
+import { useStore } from 'vuex';
 import { key } from "@/store/store";
 
 @Options({
