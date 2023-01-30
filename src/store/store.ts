@@ -4,19 +4,15 @@ import pets from "./pets.module";
 import users from "./users.module";
 import LocalForage from 'localforage';
 import VuexPersist from 'vuex-persist';
-
-// store.ts
-
+import Vuex from 'vuex';
+import _ from 'lodash';
+import 'localforage-getitems';
+import 'localforage-setitems';
 import { createStore } from 'vuex'
 
-
-// define your typings for the store state
 export interface State {
   originalState: any
 }
-
-// define injection key
-//export const key: InjectionKey<Store<State>> = Symbol()
 
 const dataKey = 'pick.a.pet';
 const appState = {
@@ -37,25 +33,55 @@ const vuexLocal = new VuexPersist({
   storage: storage as any
 })
 
-export const store = createStore({
-  state () {
-    return appState
-  },
-  mutations: {
-    ...pets.mutations,
-    ...users.mutations,
-  },
-  actions: {
-    ...pets.actions,
-    ...users.actions,
-  },
-  getters: {
-    ...pets.getters,
-    ...users.getters,
-  },
-  plugins: [vuexLocal.plugin]
-})
 
-// export default createStore({
+// export const createStore = async () => ({
+//   state   ()  {
 
-// });
+//     // storage.setItem('my-state', appState).catch(function(err) { console.log(err);});
+//     return appState
+//   },
+//   mutations: {
+//     ...pets.mutations,
+//     ...users.mutations,
+//   },
+//   actions: {
+//     ...pets.actions,
+//     ...users.actions,
+//   },
+//   getters: {
+//     ...pets.getters,
+//     ...users.getters,
+//   },
+//   plugins: [vuexLocal.plugin]
+// }
+
+// )
+
+
+export const configureStore = async () => {
+  const savedState = await LocalForage.getItem(dataKey);
+
+  const storeConfig = {
+    state: savedState ? JSON.parse(savedState as any) : appState,
+    mutations: {
+          ...pets.mutations,
+          ...users.mutations,
+        },
+        actions: {
+          ...pets.actions,
+          ...users.actions,
+        },
+        getters: {
+          ...pets.getters,
+          ...users.getters,
+        },
+        plugins: [store=>{
+          store.subscribe((mutations,state)=>{
+            LocalForage.setItem(dataKey, JSON.parse(JSON.stringify(state)));
+          })
+        }]
+  };
+
+  return new Vuex.Store(storeConfig);
+};
+

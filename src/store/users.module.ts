@@ -70,7 +70,6 @@ const mutations = {
     },
     [SET_CURRENT_USER](state, user: User) {
         state.currentUser = user;
-        console.log('tes ',user);
     }
 }
 

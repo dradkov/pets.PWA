@@ -1,4 +1,5 @@
 interface IUser{
+    id: string;
     email: string;
     password: string;
     userName: string;
@@ -9,6 +10,7 @@ interface IUser{
 }
 
 class User implements IUser{
+    id: string;
     email: string;
     password: string;
     userName: string;
@@ -16,7 +18,8 @@ class User implements IUser{
     phoneNumber: number;
     token: string;
     pets: any[];
-    constructor(email: string, password: string,userName: string,loginDate: Date, phoneNumber: number, token: string, pets: any[]  ) {
+    constructor( id: string, email: string, password: string,userName: string,loginDate: Date, phoneNumber: number, token: string, pets: any[]  ) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.userName = userName;
