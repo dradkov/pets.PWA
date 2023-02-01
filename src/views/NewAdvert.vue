@@ -9,20 +9,15 @@
               <fieldset>
                 <div class="section postdetails">
                   <h4>
-                    Публикувай<span class="pull-right"
-                      >* Задължителни полета</span
-                    >
+                    Публикувай<span class="pull-right">* Задължителни полета</span>
                   </h4>
                   <div class="row form-group add-title">
-                    <label class="col-sm-3 label-title"
-                      >Категория<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Категория<span class="required">*</span></label>
                     <div class="col-sm-9">
                       <div class="dropdown category-dropdown">
-                        <a data-toggle="dropdown" href="#" aria-expanded="false"
-                          ><span class="change-text">Избери Категория</span>
-                          <i class="fa fa-angle-down pull-right"></i
-                        ></a>
+                        <a data-toggle="dropdown" href="#" aria-expanded="false"><span class="change-text">Избери Категория</span>
+                          <i class="fa fa-angle-down pull-right"></i>
+                        </a>
                         <ul class="dropdown-menu category-change">
                           <li><a href="#">Купува</a></li>
                           <li><a href="#">Продава</a></li>
@@ -33,15 +28,12 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label class="col-sm-3 label-title"
-                      >Тип любимец<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Тип любимец<span class="required">*</span></label>
                     <div class="col-sm-9">
                       <div class="dropdown category-dropdown">
-                        <a data-toggle="dropdown" href="#" aria-expanded="false"
-                          ><span class="change-text">Любимец категория</span>
-                          <i class="fa fa-angle-down pull-right"></i
-                        ></a>
+                        <a data-toggle="dropdown" href="#" aria-expanded="false"><span class="change-text">Любимец категория</span>
+                          <i class="fa fa-angle-down pull-right"></i>
+                        </a>
                         <ul class="dropdown-menu category-change">
                           <li><a href="#">Куче</a></li>
                           <li><a href="#">Котка</a></li>
@@ -52,15 +44,12 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label class="col-sm-3 label-title"
-                      >Порода любимец<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Порода любимец<span class="required">*</span></label>
                     <div class="col-sm-9">
                       <div class="dropdown category-dropdown">
-                        <a data-toggle="dropdown" href="#" aria-expanded="false"
-                          ><span class="change-text">Любимец категория</span>
-                          <i class="fa fa-angle-down pull-right"></i
-                        ></a>
+                        <a data-toggle="dropdown" href="#" aria-expanded="false"><span class="change-text">Любимец категория</span>
+                          <i class="fa fa-angle-down pull-right"></i>
+                        </a>
                         <ul class="dropdown-menu category-change">
                           <li><a href="#">Дръпни</a></li>
                           <li><a href="#">От</a></li>
@@ -70,15 +59,12 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label class="col-sm-3 label-title"
-                      >Пол<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Пол<span class="required">*</span></label>
                     <div class="col-sm-9">
                       <div class="dropdown category-dropdown">
-                        <a data-toggle="dropdown" href="#" aria-expanded="false"
-                          ><span class="change-text">Пол</span>
-                          <i class="fa fa-angle-down pull-right"></i
-                        ></a>
+                        <a data-toggle="dropdown" href="#" aria-expanded="false"><span class="change-text">Пол</span>
+                          <i class="fa fa-angle-down pull-right"></i>
+                        </a>
                         <ul class="dropdown-menu category-change">
                           <li><a href="#">Мъжки</a></li>
                           <li><a href="#">Женски</a></li>
@@ -87,15 +73,12 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label class="col-sm-3 label-title"
-                      >Град<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Град<span class="required">*</span></label>
                     <div class="col-sm-9">
                       <div class="dropdown category-dropdown">
-                        <a data-toggle="dropdown" href="#" aria-expanded="false"
-                          ><span class="change-text">Град</span>
-                          <i class="fa fa-angle-down pull-right"></i
-                        ></a>
+                        <a data-toggle="dropdown" href="#" aria-expanded="false"><span class="change-text">Град</span>
+                          <i class="fa fa-angle-down pull-right"></i>
+                        </a>
                         <ul class="dropdown-menu category-change">
                           <li><a href="#">София</a></li>
                           <li><a href="#">Бургас</a></li>
@@ -104,9 +87,9 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label class="col-sm-3 label-title"
-                      >Чип<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Чип<span class="required">*</span></label>
+                     
+                    
                     <div class="col-sm-9">
                       <div class="custom-check checkbox section agreement">
                         <label for="chip">
@@ -116,9 +99,7 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label class="col-sm-3 label-title"
-                      >Паспорт<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Паспорт<span class="required">*</span></label>
                     <div class="col-sm-9">
                       <div class="custom-check checkbox section agreement">
                         <label for="passport">
@@ -132,9 +113,7 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label class="col-sm-3 label-title"
-                      >Родословие<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Родословие<span class="required">*</span></label>
                     <div class="col-sm-9">
                       <div class="custom-check checkbox section agreement">
                         <label for="pedigree">
@@ -160,15 +139,13 @@
                     <label class="col-sm-3 label-title">Снимки</label>
                     <div class="col-sm-8">
                       <label class="upload-image" for="filename">
-                        <input type="file" id="filename" name="filename" />
+                        <input id="filename" type="file" name="filename" />
                         Upload Photos
                       </label>
                     </div>
                   </div>
                   <div class="row form-group brand-name">
-                    <label class="col-sm-3 label-title"
-                      >Телефон за контакт<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Телефон за контакт<span class="required">*</span></label>
                     <div class="col-sm-9">
                       <input
                         type="number"
@@ -188,9 +165,7 @@
                     </div>
                   </div>
                   <div class="row form-group item-description">
-                    <label class="col-sm-3 label-title"
-                      >Описание<span class="required">*</span></label
-                    >
+                    <label class="col-sm-3 label-title">Описание<span class="required">*</span></label>
                     <div class="col-sm-9">
                       <textarea
                         id="textarea"
@@ -221,8 +196,6 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { useStore } from "vuex";
-// import { MainOption, FORMATTED_MAIN_OPTIONS } from '@/models/Options/MainPageOptions';
 import {
   MainOption,
   FORMATTED_MAIN_OPTIONS,
@@ -232,10 +205,6 @@ import {
   components: {},
 })
 export default class Adverts extends Vue {
-  public beforeMount() {
-    const store = useStore();
-    let user = store.getters.currentUser;
-  }
 
   get getOptions() {
     var listOfOptions = [] as any[];
