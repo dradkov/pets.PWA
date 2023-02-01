@@ -3,12 +3,7 @@
 import pets from "./pets.module";
 import users from "./users.module";
 import LocalForage from 'localforage';
-import VuexPersist from 'vuex-persist';
 import Vuex from 'vuex';
-import _ from 'lodash';
-import 'localforage-getitems';
-import 'localforage-setitems';
-import { createStore } from 'vuex'
 
 export interface State {
   originalState: any
@@ -27,42 +22,11 @@ LocalForage.config({
 
 const storage = LocalForage;
 
-const vuexLocal = new VuexPersist({
-  asyncStorage: true,
-  key: dataKey,
-  storage: storage as any
-})
-
-
-// export const createStore = async () => ({
-//   state   ()  {
-
-//     // storage.setItem('my-state', appState).catch(function(err) { console.log(err);});
-//     return appState
-//   },
-//   mutations: {
-//     ...pets.mutations,
-//     ...users.mutations,
-//   },
-//   actions: {
-//     ...pets.actions,
-//     ...users.actions,
-//   },
-//   getters: {
-//     ...pets.getters,
-//     ...users.getters,
-//   },
-//   plugins: [vuexLocal.plugin]
-// }
-
-// )
-
-
 export const configureStore = async () => {
-  const savedState = await LocalForage.getItem(dataKey);
+  const savedState = await storage.getItem(dataKey);
 
   const storeConfig = {
-    state: savedState ? JSON.parse(savedState as any) : appState,
+    state: savedState ? JSON.parse(JSON.stringify(savedState)) : appState,
     mutations: {
           ...pets.mutations,
           ...users.mutations,
@@ -77,7 +41,7 @@ export const configureStore = async () => {
         },
         plugins: [store=>{
           store.subscribe((mutations,state)=>{
-            LocalForage.setItem(dataKey, JSON.parse(JSON.stringify(state)));
+            storage.setItem(dataKey, JSON.parse(JSON.stringify(state)));
           })
         }]
   };

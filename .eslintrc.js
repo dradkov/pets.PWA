@@ -20,7 +20,9 @@ module.exports = {
     "vue/html-self-closing":'off',
     "vue/max-attributes-per-line":'off',
     "@typescript-eslint/no-explicit-any":"off",
-    "@typescript-eslint/explicit-module-boundary-types":"off"
+    "@typescript-eslint/explicit-module-boundary-types":"off",
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/multiline-html-element-content-newline': 'off',
   },
   overrides: [
     {

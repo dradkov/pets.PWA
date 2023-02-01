@@ -46,20 +46,16 @@
         </div>
 
         <div class="buttons">
-          <a href="#" class="btn">Update Profile</a>
-          <a href="#" class="btn cancle">Cancle</a>
+          <router-link class="btn" to="/">Save </router-link>
+          <router-link class="btn" to="/">Back </router-link>
         </div>
       </div>
     </div>
-    <!-- user-pro-edit -->
   </div>
-  <!-- signup-page -->
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import UserLogin from "@/models/User/UserLogin";
-import { LOGIN_USER, REGISER_USER } from "@/store/actions.type";
 import { useStore } from "vuex";
 import User from "@/models/User/User";
 
@@ -67,15 +63,14 @@ import User from "@/models/User/User";
   components: {},
 })
 export default class Profile extends Vue {
-  public email = "";
-  public password = "";
+  public email = '';
+  public password = '';
   public isInvalidEmail = false;
-  public invalidEmailMessage = "";
-  public invalidDataFieldsMessage = "";
+  public invalidEmailMessage = '';
+  public invalidDataFieldsMessage = '';
   public store = useStore();
 
   public user = {} as User;
-
 
   get currentUser() {
     const store = useStore();
@@ -87,13 +82,13 @@ export default class Profile extends Vue {
     return user;
   }
   public async onSubmit() {
-    if (this.email === "" || this.password === "") {
+    if (this.email === '' || this.password === '') {
       this.invalidDataFieldsMessage = "Please fill in all fields";
-    } else if (this.invalidEmailMessage === "") {
-    //   const login = new UserLogin(this.email, this.password);
-    //   await this.store.dispatch(LOGIN_USER, login).then(() => {
-    //     this.$router.push("/");
-    //   });
+    } else if (this.invalidEmailMessage === '') {
+      //   const login = new UserLogin(this.email, this.password);
+      //   await this.store.dispatch(LOGIN_USER, login).then(() => {
+      //     this.$router.push("/");
+      //   });
     }
   }
 
@@ -101,7 +96,7 @@ export default class Profile extends Vue {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
       this.invalidEmailMessage = "";
     } else {
-      this.invalidEmailMessage = "Please enter a valid email address";
+      this.invalidEmailMessage = 'Please enter a valid email address';
     }
   }
 }

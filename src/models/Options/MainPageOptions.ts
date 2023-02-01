@@ -15,5 +15,3 @@ export const FORMATTED_MAIN_OPTIONS = new Map<MainOption, string>([
     [MainOption.SearchPartner, 'Search Partner'],
     [MainOption.Veterinary, 'Veterinary'],
 ])
-
-

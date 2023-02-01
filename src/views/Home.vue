@@ -5,21 +5,24 @@
     <div class="container">
       <Filters />
       <ListAdverts />
+      <Pagination />
     </div><!-- conainer -->
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import Filters from "@/components/Filters.vue"; // @ is an alias to /src
-import ListAdverts from "@/components/ListAdverts.vue"; // @ is an alias to /src
+import HelloWorld from "@/components/HelloWorld.vue"; 
+import Filters from "@/components/Filters.vue"; 
+import ListAdverts from "@/components/ListAdverts.vue"; 
+import Pagination from "@/components/Pagination.vue"; 
 
 @Options({
   components: {
     HelloWorld,
     Filters,
-    ListAdverts
+    ListAdverts,
+    Pagination
   },
 })
 export default class Home extends Vue {}
