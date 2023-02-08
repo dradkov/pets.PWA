@@ -50,8 +50,8 @@ const actions = {
         })
     },
     [LOGIN_USER]: ({ commit }, model: UserLogin) => {
-        return new Promise<void>(async (resolve, reject) => {
-            let user: User;
+        let user: User;
+        return new Promise<User>(async (resolve, reject) => {
             try {
                 user = await userService.login(model);
                 commit(SET_CURRENT_USER, user);
@@ -59,7 +59,7 @@ const actions = {
                 console.log(error);
                 reject(error);
             }
-            resolve();
+            resolve(user);
         })
     },
 }
