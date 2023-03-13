@@ -89,11 +89,11 @@
                     <label class="col-sm-3 label-title"></label>
                     <div class="col-sm-3">
                       <label class="col-sm-3 label-title">Брой ваксини</label>
-                      <p>1</p>
+                      <p>{{currentAd.numberOfVaccinations}}</p>
                     </div>
                     <div class="col-sm-3">
                       <label class="col-sm-3 label-title">Цвят</label>
-                      <p>черен с червено</p>
+                       <p>{{currentAd.color}}</p>
                     </div>
                   </div>
                   <div class="row form-group post-resume">
@@ -187,7 +187,7 @@ import { useStore } from "vuex";
 @Options({})
 export default class Details extends Vue {
   public store = useStore();
-  
+
   get currentAd() {
     return this.store.getters.currentPetAd;
   }

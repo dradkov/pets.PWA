@@ -15,6 +15,9 @@ interface IPet {
   phoneNumber: number;
   price: number;
   description: string;
+  breed: string;
+  numberOfVaccinations: number;
+  color: string;
 }
 
 class Pet implements IPet {
@@ -30,6 +33,8 @@ class Pet implements IPet {
   price: number;
   description: string;
   breed: string;
+  numberOfVaccinations: number;
+  color: string;
 
   constructor(
     id: string,
@@ -43,7 +48,9 @@ class Pet implements IPet {
     phoneNumber: number,
     price: number,
     description: string,
-    breed: string
+    breed: string,
+    numberOfVaccinations: number,
+    color: string
   ) {
     this.id = id;
     this.advertType = advertType;
@@ -57,6 +64,8 @@ class Pet implements IPet {
     this.price = price;
     this.description = description;
     this.breed = breed;
+    this.numberOfVaccinations = numberOfVaccinations;
+    this.color = color;
   }
 }
 
