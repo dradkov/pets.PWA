@@ -1,10 +1,10 @@
 import {
     GET_ALL_PETS,
-    TEST_PET,
+    GET_CURRENT_PET,
 } from './actions.type';
 import {
     SET_ALL_PETS,
-    SET_TEST_PET,
+    SET_CURRENT_PET,
 } from './mutation.type';
 
 import PetService from "@/services/PetService";
@@ -15,12 +15,14 @@ const petService = PetService.shared;
 
 const originalState = {
     petList: [] as Pet[] ,
+    currentPetAd:{} as Pet ,
 }
 
 const getters = {
     pets: (state) => {
         return state.petList
-    }
+    },
+    currentPetAd:(state) => state.currentPetAd
 }
 
 const actions = {
@@ -38,14 +40,19 @@ const actions = {
             resolve();
         })
     },
+
+    [GET_CURRENT_PET]: ({ commit }, id: string) => {
+        commit(SET_CURRENT_PET, id);
+    },
 }
 
 const mutations = {
-    [SET_TEST_PET](state, data: string) {
-        state.petList = [data, data];
-    },
     [SET_ALL_PETS](state, data: any) {
         state.petList = data;
+    },
+    [SET_CURRENT_PET](state, id: string) {
+        const list = state.petList as Pet[];
+        state.currentPetAd = list.find(x => x.id === id);
     }
 }
 

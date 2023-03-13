@@ -25,7 +25,42 @@
         </form>
       </div>
       <!-- profile-details -->
-
+      <div class="change-password section">
+        <h2>Моите Обяви</h2>
+        <div class="profile-ad-container">
+          <div class="col-md-4">
+            <div class="profile-image">
+              <a href="pet-details.html"
+                ><img
+                  src="images/TestPic.png"
+                  alt="Image"
+                  class="img-responsive"
+              /></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="profile-image">
+              <a href="pet-details.html"
+                ><img
+                  src="images/TestPic.png"
+                  alt="Image"
+                  class="img-responsive"
+              /></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="profile-image">
+              <a href="pet-details.html"
+                ><img
+                  src="images/TestPic.png"
+                  alt="Image"
+                  class="img-responsive"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <!-- item-image -->
+      </div>
       <!-- change-password -->
       <div class="change-password section">
         <h2>Смяна на парола</h2>
@@ -63,11 +98,11 @@ import User from "@/models/User/User";
   components: {},
 })
 export default class Profile extends Vue {
-  public email = '';
-  public password = '';
+  public email = "";
+  public password = "";
   public isInvalidEmail = false;
-  public invalidEmailMessage = '';
-  public invalidDataFieldsMessage = '';
+  public invalidEmailMessage = "";
+  public invalidDataFieldsMessage = "";
   public store = useStore();
 
   public user = {} as User;
@@ -82,9 +117,9 @@ export default class Profile extends Vue {
     return user;
   }
   public async onSubmit() {
-    if (this.email === '' || this.password === '') {
+    if (this.email === "" || this.password === "") {
       this.invalidDataFieldsMessage = "Please fill in all fields";
-    } else if (this.invalidEmailMessage === '') {
+    } else if (this.invalidEmailMessage === "") {
       //   const login = new UserLogin(this.email, this.password);
       //   await this.store.dispatch(LOGIN_USER, login).then(() => {
       //     this.$router.push("/");
@@ -96,7 +131,7 @@ export default class Profile extends Vue {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
       this.invalidEmailMessage = "";
     } else {
-      this.invalidEmailMessage = 'Please enter a valid email address';
+      this.invalidEmailMessage = "Please enter a valid email address";
     }
   }
 }

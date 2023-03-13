@@ -5,38 +5,32 @@
   <router-view />
 </template>
 
-
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import TopBarHeader from "@/components/Headers/TopBarHeader.vue";
 import Filters from "@/components/Filters.vue";
 import ListAdverts from "@/components/ListAdverts.vue";
-import  PaginationFilter  from "@/models/PaginationFilter";
-import { useStore } from 'vuex';
+import PaginationFilter from "@/models/PaginationFilter";
+import { useStore } from "vuex";
 import { GET_ALL_PETS } from "./store/actions.type";
-
 
 @Options({
   components: {
     TopBarHeader,
     Filters,
-    ListAdverts
+    ListAdverts,
   },
 })
- export default class App extends Vue {
-
-   public async beforeMount(){
+export default class App extends Vue {
+  public async beforeMount() {
     const store = useStore();
 
-    const filter = new PaginationFilter(1,10);
+    const filter = new PaginationFilter(1, 10);
 
-   await store.dispatch(GET_ALL_PETS, filter);
-
-
-   }
- }
+    await store.dispatch(GET_ALL_PETS, filter);
+  }
+}
 </script>
-
 
 <style lang="scss">
 #app {

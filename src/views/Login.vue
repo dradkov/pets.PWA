@@ -84,10 +84,6 @@ export default class Login extends Vue {
     {
       const login = new UserLogin(this.email, this.password);
       await this.store.dispatch(LOGIN_USER, login).then((response) => {
-        console.log(response);
-        var user = { id:response.id, name: response.userName};
-        
-        this.$cookies.set("username",user)
         this.$router.push('/');
       });
     }

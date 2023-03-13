@@ -5,6 +5,7 @@ import Login from "../views/Login.vue";
 import Profile from "../views/Profile.vue";
 import ForgotenPassword from "../views/ForgotenPassword.vue";
 import NewAdvert from "../views/NewAdvert.vue";
+import Details from "../views/Details.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -36,6 +37,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/new-advert",
     name: "NewAdvert",
     component: NewAdvert,
+  },
+  {
+    path: "/details",
+    name: "Details",
+    component: Details,
   },
   {
     path: "/about",

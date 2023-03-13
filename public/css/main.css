@@ -3212,4 +3212,12 @@ input, select, a, .transition,
   background: #662d91;
 }
 
+.profile-image {
+	width: 50%;
+}
+.profile-ad-container{
+	padding-bottom: 60px;
+    margin-left: 15%;
+}
+
 

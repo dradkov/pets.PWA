@@ -4,6 +4,7 @@ import { Gender } from "./Enums/Gender";
 import { PetType } from "./Enums/PetType";
 
 interface IPet {
+  id: string;
   advertType: AdvertType;
   address: Address;
   gender: Gender;
@@ -17,6 +18,7 @@ interface IPet {
 }
 
 class Pet implements IPet {
+  id: string;
   advertType: AdvertType;
   address: Address;
   gender: Gender;
@@ -30,6 +32,7 @@ class Pet implements IPet {
   breed: string;
 
   constructor(
+    id: string,
     advertType: AdvertType,
     address: Address,
     gender: Gender,
@@ -42,6 +45,7 @@ class Pet implements IPet {
     description: string,
     breed: string
   ) {
+    this.id = id;
     this.advertType = advertType;
     this.address = address;
     this.gender = gender;
