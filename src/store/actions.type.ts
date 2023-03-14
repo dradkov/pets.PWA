@@ -4,3 +4,4 @@ export const GET_ALL_PETS = 'getAllPets';
 export const SEND_FORGOTEN_PASS = 'sendForgotenPass';
 export const LOGIN_USER = 'loginUser';
 export const GET_CURRENT_PET = 'getCurrentPet';
+export const LOGOUT_USER = 'logoutUser';

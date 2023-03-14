@@ -14,9 +14,9 @@ class UserService {
     }
 
 
-    public async registerUser(data: UserRegister): Promise<string> {
+    public async registerUser(data: UserRegister): Promise<User> {
         const url = `${this.baseUrl}/api/auth/register`;
-        const result = await axios.post<any>(url, data)
+        const result = await axios.post<User>(url, data)
             .then((response) => {
                 return response.data;
             })
@@ -41,6 +41,21 @@ class UserService {
     public async login(data: UserLogin): Promise<User> {
         const url = `${this.baseUrl}/api/auth/login`;
         const result = await axios.post<User>(url, data)
+            .then((response) => {
+                return response.data;
+            })
+            .catch((error) => {   
+                throw new Error(error.message);
+            })
+        
+        return result;
+           
+    }
+
+    // Redundant at the moment
+    public async logout(id: string): Promise<boolean> {
+        const url = `${this.baseUrl}/api/auth/logout/${id}`;
+        const result = await axios.get<boolean>(url)
             .then((response) => {
                 return response.data;
             })

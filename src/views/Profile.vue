@@ -19,7 +19,7 @@
             <input
               type="text"
               class="form-control"
-              placeholder="+213 1234 56789"
+              placeholder="+359 1234 56789"
             />
           </div>
         </form>
@@ -84,6 +84,10 @@
           <router-link class="btn" to="/">Save </router-link>
           <router-link class="btn" to="/">Back </router-link>
         </div>
+
+        <button type="button" @click="() => logout()" class="btn btn-secondary">
+          Излез
+        </button>
       </div>
     </div>
   </div>
@@ -93,6 +97,7 @@
 import { Options, Vue } from "vue-class-component";
 import { useStore } from "vuex";
 import User from "@/models/User/User";
+import { LOGOUT_USER } from "@/store/actions.type";
 
 @Options({
   components: {},
@@ -116,37 +121,13 @@ export default class Profile extends Vue {
     }
     return user;
   }
-  public async onSubmit() {
-    if (this.email === "" || this.password === "") {
-      this.invalidDataFieldsMessage = "Please fill in all fields";
-    } else if (this.invalidEmailMessage === "") {
-      //   const login = new UserLogin(this.email, this.password);
-      //   await this.store.dispatch(LOGIN_USER, login).then(() => {
-      //     this.$router.push("/");
-      //   });
-    }
-  }
 
-  public validateEmail() {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
-      this.invalidEmailMessage = "";
-    } else {
-      this.invalidEmailMessage = "Please enter a valid email address";
-    }
+  public async logout() {
+    await this.store.dispatch(LOGOUT_USER).then(() => {
+        this.$router.push('/');
+      });
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.warning {
-  color: red;
-  font-size: 10;
-}
-
-.footerLinks {
-  margin: 45px auto 0 auto;
-  max-width: 800px;
-  display: flex;
-  justify-content: space-between;
-}
-</style>
+<style lang="scss" scoped></style>

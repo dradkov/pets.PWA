@@ -29,20 +29,20 @@
                       placeholder="Password"
                     />
                   </div>
-                 <div class="footerLinks">
-                  <router-link to="/register">Нямам Регистрация</router-link>
-                 <router-link to="/forgoten-password">Забравена парола</router-link>
+                  <p v-if="invalidDataFieldsMessage" class="warning">
+                    {{ invalidDataFieldsMessage }}
+                  </p>
+                  <div class="footerLinks">
+                    <router-link to="/register">Нямам Регистрация</router-link>
+                    <router-link to="/forgoten-password"
+                      >Забравена парола</router-link
+                    >
+                  </div>
 
-                 </div>
-                
                   <!-- checkbox -->
                 </form>
-                <p v-if="invalidDataFieldsMessage" class="warning">
-                  {{ invalidDataFieldsMessage }}
-                </p>
-                <button class="btn" @click="() => onSubmit()">
-                  Влез
-                </button>
+
+                <button class="btn" @click="() => onSubmit()">Влез</button>
               </div>
               <div id="post-register" role="tabpanel" class="tab-pane"></div>
             </div>
@@ -67,25 +67,27 @@ import { useStore } from "vuex";
   components: {},
 })
 export default class Login extends Vue {
-  public email = '';
-  public password = '';
+  public email = "";
+  public password = "";
   public isInvalidEmail = false;
-  public invalidEmailMessage = '';
-  public invalidDataFieldsMessage = '';
+  public invalidEmailMessage = "";
+  public invalidDataFieldsMessage = "";
   public store = useStore();
 
   public async onSubmit() {
-    if (
-      this.email === '' ||
-      this.password === '' 
-    ) {
-      this.invalidDataFieldsMessage = "Please fill in all fields";
-    } else if ( this.invalidEmailMessage === '' ) 
-    {
+    if (this.email === "" || this.password === "") {
+      this.invalidDataFieldsMessage = "Моля попълнете всички полета";
+    } else if (this.invalidEmailMessage === "") {
+      this.invalidDataFieldsMessage = "";
       const login = new UserLogin(this.email, this.password);
-      await this.store.dispatch(LOGIN_USER, login).then((response) => {
-        this.$router.push('/');
-      });
+      await this.store
+        .dispatch(LOGIN_USER, login)
+        .then(() => {
+          this.$router.push("/");
+        })
+        .catch((err) => {
+          this.invalidDataFieldsMessage = "Невалидна парола или имейл";
+        });
     }
   }
 
@@ -93,7 +95,7 @@ export default class Login extends Vue {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
       this.invalidEmailMessage = "";
     } else {
-      this.invalidEmailMessage = "Please enter a valid email address";
+      this.invalidEmailMessage = "Моля използвайте валиден имейл";
     }
   }
 }
@@ -106,10 +108,9 @@ export default class Login extends Vue {
 }
 
 .footerLinks {
-    margin: 45px auto 0 auto;
-    max-width: 800px;
-    display: flex;
-    justify-content: space-between;
+  margin: 45px auto 0 auto;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
 }
-
 </style>
