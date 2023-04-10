@@ -4,11 +4,12 @@ import VueCookies from 'vue-cookies';
 import "./registerServiceWorker";
 import router from "./router";
 import "./styles/_index.scss";
-// import { store } from './store/store'
+import Vue from 'vue';
+import vuetify from 'vuetify';
+
 
 import { configureStore } from './store/store';
 
-// createApp(App).use(store).use(router).mount("#app");
 
 export let store: any;
 

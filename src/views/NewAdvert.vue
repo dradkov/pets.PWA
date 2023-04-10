@@ -14,19 +14,27 @@
                   <div class="row form-group add-title">
                     <label class="col-sm-3 label-title">Категория<span class="required">*</span></label>
                     <div class="col-sm-9">
-                      <div class="dropdown category-dropdown">
+
+      <Dropdown :options="getTest" />
+                   
+                      <!-- <div class="dropdown category-dropdown">
                         <a data-toggle="dropdown" href="#" aria-expanded="false"><span class="change-text">Избери Категория</span>
                           <i class="fa fa-angle-down pull-right"></i>
                         </a>
-                        <ul class="dropdown-menu category-change">
-                          <li><a href="#">Купува</a></li>
-                          <li><a href="#">Продава</a></li>
-                          <li><a href="#">Изгубено/Намерено</a></li>
-                          <li><a href="#">За разплод</a></li>
-                        </ul>
-                      </div>
+                          
+   
+                      
+                      </div> -->
                     </div>
                   </div>
+
+
+
+
+
+
+
+
                   <div class="row form-group">
                     <label class="col-sm-3 label-title">Тип любимец<span class="required">*</span></label>
                     <div class="col-sm-9">
@@ -200,9 +208,10 @@ import {
   MainOption,
   FORMATTED_MAIN_OPTIONS,
 } from "@/models/Options/MainPageOptions";
+import Dropdown from "@/components/Dropdown.vue";
 
 @Options({
-  components: {},
+  components: { Dropdown },
 })
 export default class Adverts extends Vue {
 
@@ -214,6 +223,15 @@ export default class Adverts extends Vue {
     listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.FoundLost));
     listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.SearchPartner));
     listOfOptions.push(FORMATTED_MAIN_OPTIONS.get(MainOption.Veterinary));
+
+    return listOfOptions;
+  }
+
+   get getTest() {
+    var listOfOptions = [] as string[];
+    listOfOptions.push("s");
+    listOfOptions.push("ff");
+    listOfOptions.push("asss");
 
     return listOfOptions;
   }
